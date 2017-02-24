@@ -1,0 +1,22 @@
+.row {
+	text-align: center;
+	margin-top: 100px;
+}
+button {
+	height: 80px;
+	width: 100%;
+	background-color: lightblue;
+	border-radius: 10px;
+}
+.rezultat {
+	height: 100px;
+}
+#rezText1, #rezText2, #rezText3, #rezText4 {
+	font-size: 30px;
+	background-color: lightgrey;
+}
+@media screen and (max-width: 500px) {
+    #rezText1, #rezText2, #rezText3, #rezText4 {
+    font-size: 15px;
+    }
+}
