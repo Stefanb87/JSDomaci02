@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Domaci05</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/1bd0892c8e.js"></script>
+    
+</head>
+<body>
+<script type="text/javascript">
+	var testObjekat = {
+	naziv: "Startit kurs pravljenja sajtova",
+	trajanjeNedelja: 33,
+	predavac: {
+		ime: "Petar",
+		prezime: "Popovic"
+	},
+	ocenePolaznika: [3,2,7,4,8,1,9,2,10,10,3,6,3,1,7,3,5,4,10,9,1,9],
+	organizacija: "Startit",
+	kursJosTraje: true
+};
+
+
+function izvuciNiz(nekiObjekat) {
+	var nizIzObjekta = nekiObjekat.ocenePolaznika;
+	var noviNizIzObjekta = [];
+	for (var i = 0; i<nizIzObjekta.length; i++) {
+	noviNizIzObjekta.push(nizIzObjekta[i] + '/10');
+	}
+
+console.log(noviNizIzObjekta);
+}
+
+izvuciNiz(testObjekat);
+
+
+function prosek(nekiObjekat) {
+	var niz = nekiObjekat.ocenePolaznika;
+	var sum = 0;
+
+	for (var i = 0; i <= niz.length - 1; i++) {
+		sum += niz[i];
+	}
+	var prosek = sum/niz.length;
+	return console.log('Prosecna ocena je: ' + prosek.toFixed(2));
+}
+
+prosek(testObjekat);
+
+
+function brojOcena (nekiObjekat) {
+	var nizIzObjekta1 = nekiObjekat.ocenePolaznika;
+	var noviNizIzObjekta1 = [];
+
+	for(var i=0; i<nizIzObjekta1.length; i=i) {
+			var privremena = nizIzObjekta1[i];
+			var counter = 1;
+			for(var j=i+1; j<nizIzObjekta1.length; j++) {
+				if (nizIzObjekta1[j] === privremena) {
+					counter++;
+					nizIzObjekta1.splice(j, 1);
+				}
+			}
+			noviNizIzObjekta1.push('{ rate_' + privremena + ': ' + counter + '}');
+			nizIzObjekta1.splice(i, 1);
+	}
+	return console.log(noviNizIzObjekta1);
+}
+
+brojOcena(testObjekat);
+
+
+var people = [
+  {
+    name: 'Joe Schmoe',
+    yearsExperience: 1,
+    department: 'IT'
+  },
+  {
+    name: 'Sally Sallerson',
+    yearsExperience: 15,
+    department: 'Engineering'
+  },
+  {
+    name: 'Bill Billson',
+    yearsExperience: 5,
+    department: 'Engineering'
+  },
+  {
+    name: 'Jane Janet',
+    yearsExperience: 11,
+    department: 'Management'
+  },
+  {
+    name: 'Bob Hope',
+    yearsExperience: 9,
+    department: 'IT'
+  }
+];
+
+function iskustvoUkupno(nizObjekat) {
+	var sumaIskustvo = 0;
+
+	for (i = 0; i < nizObjekat.length; i++) {
+		var iskustvo = nizObjekat[i].yearsExperience;
+		sumaIskustvo+=iskustvo;
+	}
+	return console.log('Ukupan broj godina iskustva je: ' + sumaIskustvo);
+}
+
+iskustvoUkupno(people);
+
+function zbirPoDepartmentima(nizObjekat) {
+	var sumaIT = 0;
+	var sumaEngineering = 0;
+	var sumaManagement = 0;
+	var noviObjekat = {};
+
+	for (i = 0; i < nizObjekat.length; i++) {
+		if (nizObjekat[i].department === 'IT') {
+			sumaIT+=nizObjekat[i].yearsExperience;
+		} else if (nizObjekat[i].department === 'Engineering') {
+			sumaEngineering+=nizObjekat[i].yearsExperience;
+		} else {
+			sumaManagement+=nizObjekat[i].yearsExperience;
+		}
+	}
+	noviObjekat.IT = sumaIT;
+	noviObjekat.Engineering = sumaEngineering;
+	noviObjekat.Management = sumaManagement;
+
+	return console.log(noviObjekat);
+}
+
+zbirPoDepartmentima(people);
+</script>
+</body>
+</html>
